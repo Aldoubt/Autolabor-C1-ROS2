@@ -1,0 +1,18 @@
+# ROS2 / colcon
+build/
+install/
+log/
+
+# Acceptance artifacts
+acceptance_results/
+results/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store

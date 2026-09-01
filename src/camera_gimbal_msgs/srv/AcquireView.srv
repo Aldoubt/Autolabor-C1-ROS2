@@ -1,0 +1,18 @@
+float32 yaw
+float32 pitch
+
+float32 settle_timeout
+
+string save_dir
+---
+bool success
+
+string image_path
+builtin_interfaces/Time image_stamp
+
+float32 yaw
+float32 pitch
+
+float32 ground_pitch
+
+string message

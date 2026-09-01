@@ -19,8 +19,10 @@ def test_gimbal_state_interface_is_generated():
 
 
 def test_acquire_view_interface_is_generated():
-    output = show('camera_gimbal_msgs/srv/AcquireView')
+    output = show('camera_gimbal_msgs/action/AcquireView')
     for field in ('float32 yaw', 'float32 pitch', 'float32 settle_timeout',
                   'string save_dir', 'bool success', 'string image_path',
-                  'builtin_interfaces/Time image_stamp', 'string message'):
+                  'builtin_interfaces/Time image_stamp', 'string message',
+                  'float32 current_yaw', 'float32 current_pitch',
+                  'bool stable', 'string state'):
         assert field in output

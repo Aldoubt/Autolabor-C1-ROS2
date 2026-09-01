@@ -2,7 +2,7 @@
 
 `camera_gimbal_msgs` is the frozen capability-interface package between the
 hardware driver and the navigation runtime. It defines only the public
-`GimbalState` message and `AcquireView` service; it contains no node or
+`GimbalState` message and `AcquireView` action; it contains no node or
 implementation.
 
 The future `agt_navigation_runtime` must depend on these capability interfaces,

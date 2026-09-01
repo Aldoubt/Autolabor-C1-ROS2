@@ -8,7 +8,7 @@ find_package(std_msgs REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/GimbalState.msg"
-  "srv/AcquireView.srv"
+  "action/AcquireView.action"
   DEPENDENCIES builtin_interfaces std_msgs
 )
 

@@ -15,6 +15,17 @@ TEST(GimbalStateEstimator, MedianFilterRejectsPeriodicJump)
   EXPECT_NEAR(estimator.filtered().heading, -10.1, 1e-9);
 }
 
+TEST(GimbalStateEstimator, C1PitchJumpDoesNotBecomeFilteredOutput)
+{
+  GimbalStateEstimator estimator(5, 1, 1.5, 0.0);
+  const auto now = GimbalStateEstimator::Clock::now();
+  estimator.update({0.0, 0.0, -10.2}, {0.0, 0.0, -10.2}, now);
+  estimator.update({0.0, 0.0, -7.7}, {0.0, 0.0, -7.7}, now);
+  estimator.update({0.0, 0.0, -10.2}, {0.0, 0.0, -10.2}, now);
+  EXPECT_NEAR(estimator.filtered().pitch, -10.2, 1e-6);
+  EXPECT_LT(std::abs(estimator.filtered().pitch - (-10.2)), 0.1);
+}
+
 TEST(GimbalStateEstimator, StableWindowPasses)
 {
   GimbalStateEstimator estimator(1, 4, 1.5, 0.5);

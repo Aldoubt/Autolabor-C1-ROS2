@@ -7,12 +7,9 @@ endif()
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(ament_cmake REQUIRED)
-find_package(camera_gimbal_interfaces REQUIRED)
-find_package(cv_bridge REQUIRED)
-find_package(OpenCV REQUIRED)
+find_package(camera_gimbal_msgs REQUIRED)
 find_package(pantilt_camera_serial REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(rclcpp_action REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
 add_library(gimbal_state_estimator src/gimbal_state_estimator.cpp)
@@ -20,8 +17,7 @@ target_include_directories(gimbal_state_estimator PUBLIC include)
 
 add_executable(camera_gimbal_manager_node src/camera_gimbal_manager_node.cpp)
 target_link_libraries(camera_gimbal_manager_node gimbal_state_estimator)
-ament_target_dependencies(camera_gimbal_manager_node camera_gimbal_interfaces cv_bridge pantilt_camera_serial rclcpp rclcpp_action sensor_msgs)
-target_link_libraries(camera_gimbal_manager_node ${OpenCV_LIBRARIES})
+ament_target_dependencies(camera_gimbal_manager_node camera_gimbal_msgs pantilt_camera_serial rclcpp sensor_msgs)
 
 install(TARGETS gimbal_state_estimator camera_gimbal_manager_node DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY include/ DESTINATION include)

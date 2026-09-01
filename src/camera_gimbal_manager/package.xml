@@ -6,11 +6,9 @@
   <maintainer email="autolabor@autolabor.com.cn">autolabor</maintainer>
   <license>BSD-3-Clause</license>
   <buildtool_depend>ament_cmake</buildtool_depend>
-  <depend>camera_gimbal_interfaces</depend>
-  <depend>cv_bridge</depend>
+  <depend>camera_gimbal_msgs</depend>
   <depend>pantilt_camera_serial</depend>
   <depend>rclcpp</depend>
-  <depend>rclcpp_action</depend>
   <depend>sensor_msgs</depend>
   <exec_depend>ament_index_python</exec_depend>
   <exec_depend>launch</exec_depend>

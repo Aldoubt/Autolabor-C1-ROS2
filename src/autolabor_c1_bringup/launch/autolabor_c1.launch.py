@@ -17,8 +17,8 @@ def generate_launch_description():
 
     return LaunchDescription([
         DeclareLaunchArgument('device_path', default_value='/dev/video4'),
-        DeclareLaunchArgument('image_width', default_value='3840'),
-        DeclareLaunchArgument('image_height', default_value='2160'),
+        DeclareLaunchArgument('image_width', default_value='1920'),
+        DeclareLaunchArgument('image_height', default_value='1080'),
         DeclareLaunchArgument('fps', default_value='30.0'),
         DeclareLaunchArgument('pixel_format', default_value='mjpeg2rgb'),
         DeclareLaunchArgument('camera_info_url', default_value=''),
